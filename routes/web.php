@@ -10,6 +10,10 @@ Route::get('/blog', function () {
     return view('blog');
 });
 
+Route::get('/blog', function () {
+    return view('about');
+});
+
 Route::get('/contact', function () {
     return view('contact',['nama' => 'bilal']);
 });
