@@ -11,12 +11,14 @@ Route::get('/posts', function () {
     return view('posts',['title' => 'Blog'],['posts' => [
         [
             'id' => 1,
+            'slug' => 'judul-artikel-1',
             'title' => 'judul artikel 1',
             'author' => 'bilal ahmad syafiq',
             'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores natus facere praesentium quasi voluptatum voluptate dicta culpa tempore alias nulla hic explicabo sed quod deserunt, similique qui eos quisquam quae?Assumenda, ipsa! Nam maiores illum aliquid fugit nobis dolorum accusamus ea repudiandae perspiciatis, aperiam odio perferendis soluta, unde sapiente in expedita tempore! Beatae possimus, quisquam id eos nemo expedita vitae?'
         ],
         [
             'id' => 2,
+            'slug' => 'judul-artikel-2',
             'title' => 'judul artikel 2',
             'author' => 'bilal ahmad syafiq',
             'body' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente consequuntur iure similique dolorem repellat aut dolor optio voluptatum nemo cumque ut nisi, facilis consequatur rem repudiandae animi neque deleniti placeat?
@@ -27,16 +29,18 @@ Route::get('/posts', function () {
 ]);
 });
 
-Route::get('/posts/{id}', function($id) {
+Route::get('/posts/{slug}', function($slug) {
     $posts = [
         [
             'id' => 1,
+            'slug' => 'judul-artikel-1',
             'title' => 'judul artikel 1',
             'author' => 'bilal ahmad syafiq',
             'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores natus facere praesentium quasi voluptatum voluptate dicta culpa tempore alias nulla hic explicabo sed quod deserunt, similique qui eos quisquam quae?Assumenda, ipsa! Nam maiores illum aliquid fugit nobis dolorum accusamus ea repudiandae perspiciatis, aperiam odio perferendis soluta, unde sapiente in expedita tempore! Beatae possimus, quisquam id eos nemo expedita vitae?'
         ],
         [
             'id' => 2,
+            'slug' => 'judul-artikel-2',
             'title' => 'judul artikel 2',
             'author' => 'bilal ahmad syafiq',
             'body' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente consequuntur iure similique dolorem repellat aut dolor optio voluptatum nemo cumque ut nisi, facilis consequatur rem repudiandae animi neque deleniti placeat?
@@ -45,8 +49,8 @@ Route::get('/posts/{id}', function($id) {
         ]
         ];
 
-        $post = Arr::first($posts, function($post) use($id) {
-    return $post['id'] == $id;
+        $post = Arr::first($posts, function($post) use($slug) {
+    return $post['slug'] == $slug;
     });
     
     return view('post', ['title' => 'single post', 'post' => $post]);

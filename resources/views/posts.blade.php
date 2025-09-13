@@ -7,7 +7,7 @@
       <h2 class="capitalize text-3xl font-bold">{{ $post['title'] }}</h2>
       <p class="font-thin mt-1">{{ $post['author'] }}</p>
       <p class="mt-5">{{ Str::limit($post['body'],150) }}</p>
-      <a href="/posts/{{ $post['id'] }}" class="inline-block mt-4 text-blue-400 hover:underline">Read more &raquo;</a>
+      <a href="/posts/{{ $post['slug'] }}" class="inline-block mt-4 text-blue-400 hover:underline">Read more &raquo;</a>
     </div>
   </article>
 
