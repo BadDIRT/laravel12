@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,7 +23,7 @@ class PostFactory extends Factory
         $slug = fake()->sentence();
         return [
             'title' => fake()->sentence(),
-            'author' => fake()->name(),
+            'author_id' => User::Factory(),
             'slug' => Str::slug($slug),
             'body' => fake()->text()
         ];
